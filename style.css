@@ -2,6 +2,77 @@
     margin: 0;
     padding: 0;
 }
-h1 {
-    color: purple;
+body{
+    position: relative;
+    display: block;
+}
+#content {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    background-color: aliceblue;
+    height: 80px;
+    margin-top: 60px;
+}
+#h1main{
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+#h3main{
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+footer{
+    background-color: rgb(109, 185, 252);
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    height: 65px;
+}
+.button{
+    height:100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+}
+#btn1 {
+    background-color: red;
+}
+#btn2{
+    background-color: springgreen;
+}
+#btn3{
+    background-color: violet;
+}
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+#grid-container {
+    display: grid;
+    height: 50vh; /* ZMENIT */
+    width: 50vh;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    background-color: #2196F3;
+    padding: 10px;
+}
+.grid-item {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 1px;
+    font-size: 11px;
+    text-align: center;
 }
