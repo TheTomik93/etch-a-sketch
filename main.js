@@ -10,10 +10,10 @@ let colorScheme = 1; /*Defaultne grayscale schema*/
 
 clearButton.addEventListener("click", clearGrid);
 sizeButton.addEventListener("click", askSize);
-grayscaleButton.addEventListener("click", setGrayscale); /* */
+grayscaleButton.addEventListener("click", setGrayscale);
 rainbowButton.addEventListener("click", setRainbow);
 
-createGrid(size, size);
+createGrid(size, size); /*Initial grid with default size*/
 
 function createGrid(rows, cols) {
     numberOfGridBoxes = rows * cols;
@@ -32,11 +32,26 @@ function createGrid(rows, cols) {
 
 function changeColor(activeGridSquare) {
     if(colorScheme === 1){
-        activeGridSquare.className = "grayscale";
+        if (activeGridSquare.classList.contains("change")) {
+
+            let currentOpacity = Number(activeGridSquare.style.backgroundColor.slice(-4, -1));
+
+            if(currentOpacity == 0.8) {
+                activeGridSquare.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.2})`;
+            }
+            else if (currentOpacity < 0.8) {
+                activeGridSquare.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.2})`;
+            }
+        }
+        else {
+            activeGridSquare.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';  
+            activeGridSquare.classList.add("change");
+        }
     }
     else if(colorScheme === 2){
-        activeGridSquare.className = "rainbow";
-    }
+        activeGridSquare.classList.remove('change');
+        activeGridSquare.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 45%)`;
+    } 
 }
 
 function clearGrid(){
@@ -65,14 +80,18 @@ function setGrayscale(){
     colorScheme = 1;
     grayscaleButton.style.setProperty("border", "3px solid red");
     grayscaleButton.style.setProperty("box-shadow", "2px 2px 5px red");
+    grayscaleButton.style.setProperty("transform", "scale(1.05)");
     rainbowButton.style.setProperty("border", "0px solid red");
     rainbowButton.style.setProperty("box-shadow", "0px 0px 0px red");
+    rainbowButton.style.setProperty("transform", "scale(1)");
 }
 
 function setRainbow() {
     colorScheme = 2;
     grayscaleButton.style.setProperty("border", "0px solid red");
     grayscaleButton.style.setProperty("box-shadow", "0px 0px 0px red");
+    grayscaleButton.style.setProperty("transform", "scale(1)");
     rainbowButton.style.setProperty("border", "3px solid red");
     rainbowButton.style.setProperty("box-shadow", "2px 2px 5px red");
+    rainbowButton.style.setProperty("transform", "scale(1.05)");
 }

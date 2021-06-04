@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
 }
-
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
@@ -37,9 +36,6 @@ body{
     margin-right: 15px;
     margin-bottom: 8px;
 }
-footer{
-    background-color: rgb(109, 185, 252);
-}
 .menu{
     display: flex;
     justify-content: center;
@@ -67,6 +63,8 @@ footer{
     justify-content: space-evenly;
     color: white;
     text-shadow: 2px 2px 4px #000000;
+    box-shadow: 2px 2px 5px red;
+    border: 3px solid red;
 }
 #btnRainbow{
     background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
@@ -91,7 +89,7 @@ footer{
     display: grid;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
-    background-color: red;
+    background-color: white;
     height: 90vw;
     width: 90vw;
     margin-top: 15px;
@@ -104,10 +102,4 @@ footer{
     background-color: rgb(255, 255, 255);
     font-size: 10px;
 }
-.grayscale{
-    background-color: yellow;
-    font-size: 10px;
-}
-.rainbow{
-    background-color: green;
-}
+
