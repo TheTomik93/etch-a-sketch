@@ -59,6 +59,7 @@ footer{
     border-radius: 15px;
     font-size: 1.3vw;
     user-select: none;
+    box-sizing: border-box;
 }
 #btnGrayscale {
     background: linear-gradient(130deg, white -20%, black 100%);
@@ -90,7 +91,7 @@ footer{
     display: grid;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
-    background-color: #2196F3;
+    background-color: red;
     height: 90vw;
     width: 90vw;
     margin-top: 15px;
@@ -101,9 +102,11 @@ footer{
 }
 .grid-item {
     background-color: rgb(255, 255, 255);
+    font-size: 10px;
 }
 .grayscale{
     background-color: yellow;
+    font-size: 10px;
 }
 .rainbow{
     background-color: green;
