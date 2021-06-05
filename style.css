@@ -14,14 +14,35 @@ body{
     margin: auto;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
     max-height: 100vh;
+    min-height: 100vh;
     justify-content: center;
+}
+#grid-container {
+    display: grid;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    background-color: white;
+    margin-top: 15px;
+    box-sizing: border-box;
+    border: 5px red solid;
+    height: 90vw;
+    width: 90vw;
 }
 #content {
     display: flex;
     flex-direction: column;
-    max-width: 500px;  /* CAUSING PROBLEMS */
+}
+@media (min-width: 800px){
+    #content{
+    max-width: 500px;       /* Taky problematicke */
+    }
+    #grid-container{
+        max-width: 500px;       /* Taky problematicke */
+        max-height: 500px;
+    }
 }
 #h1main{
     font-size: 3rem;
@@ -83,21 +104,7 @@ body{
     color: black;
     text-shadow: 2px 2px 4px #000000;
 }
-#grid-container {
-    display: grid;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    background-color: white;
-    height: 90vw;
-    width: 90vw;
-    margin-top: 15px;
-    box-sizing: border-box;
-    border: 5px red solid;
-    max-width: 500px;       /* Taky problematicke */
-    max-height: 500px;
-}
+
 .grid-item {
     background-color: rgb(255, 255, 255);
     font-size: 10px;
