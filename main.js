@@ -4,16 +4,16 @@ const sizeButton = document.getElementById("btnSize");
 const grayscaleButton = document.getElementById("btnGrayscale");
 const rainbowButton = document.getElementById("btnRainbow");
 
-let size = 16; /*Default size of the grid*/
+let size = 16; /* Default size of the grid */
 let numberOfGridBoxes = size * size;
-let colorScheme = 1; /*Defaultne grayscale schema*/
+let colorScheme = 1; /* Default color-scheme: 1 - grayscale, 2 - rainbow */
 
 clearButton.addEventListener("click", clearGrid);
 sizeButton.addEventListener("click", askSize);
 grayscaleButton.addEventListener("click", setGrayscale);
 rainbowButton.addEventListener("click", setRainbow);
 
-createGrid(size, size); /*Initial grid with default size*/
+createGrid(size, size); /* Initial grid with default size */
 
 function createGrid(rows, cols) {
     numberOfGridBoxes = rows * cols;
@@ -24,7 +24,6 @@ function createGrid(rows, cols) {
     for (let c = 0; c < numberOfGridBoxes; c++){
         let cell = document.createElement("div");
         cell.id = c;
-        /*cell.textContent = cell.id;*/
         container.appendChild(cell).className = "grid-item";
         cell.addEventListener("mouseover", function() {changeColor(cell)});
     }
@@ -54,14 +53,6 @@ function changeColor(activeGridSquare) {
     } 
 }
 
-function clearGrid(){
-    for (let i = 0; i < numberOfGridBoxes; i++){
-        let cellToClear = document.getElementById(i);
-        container.removeChild(cellToClear);
-    }
-    createGrid(size, size);
-}
-
 function askSize(){
     desiredSize = prompt("Enter the length of the row / column:", 16);
     if (isNaN(desiredSize)){
@@ -74,6 +65,14 @@ function askSize(){
         size = desiredSize;
         clearGrid();
     }
+}
+
+function clearGrid(){
+    for (let i = 0; i < numberOfGridBoxes; i++){
+        let cellToClear = document.getElementById(i);
+        container.removeChild(cellToClear);
+    }
+    createGrid(size, size);
 }
 
 function setGrayscale(){
